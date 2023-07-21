@@ -67,6 +67,7 @@ const [description2, setDescription2] = useState('A brief description about your
                             type="text"
                             value={profile}
                             rows="5"
+                            maxLength={300}
                             onChange={(e) => setProfile(e.target.value)}
                             required
                         />
@@ -93,7 +94,7 @@ const [description2, setDescription2] = useState('A brief description about your
                             required
                         />
 
-                    <h3>Skills</h3>
+                    <h3><button className='minusBtn'></button>Skills<button className='PlusBtn'></button></h3>
                     <input className='SkillsInput'
                             type="text"
                             value={skill1}
@@ -120,7 +121,7 @@ const [description2, setDescription2] = useState('A brief description about your
                         />
                         
 
-                    <h3>Education</h3>
+                    <h3><button className='minusBtn'></button>Education<button className='PlusBtn'></button></h3>
                     <input className='EducationInput'
                             type="text"
                             value={university}
@@ -142,7 +143,7 @@ const [description2, setDescription2] = useState('A brief description about your
                 </div>
 
                 <div className='BodyColumn'>
-                <h3>Experience</h3>
+                <h3><button className='minusBtn'></button>Experience<button className='PlusBtn'></button></h3>
                 <input className='ExperienceInput'
                             type="text"
                             value={role1}
@@ -155,9 +156,11 @@ const [description2, setDescription2] = useState('A brief description about your
                             onChange={(e) => setCompany1(e.target.value)}
                             required
                         />
-                    <input className='ExperienceInput'
+                    <textarea className='ExperienceInput'
                             type="text"
+                            rows="5"
                             value={description1}
+                            maxLength={300}
                             onChange={(e) => setDescription1(e.target.value)}
                             required
                         />
@@ -173,9 +176,11 @@ const [description2, setDescription2] = useState('A brief description about your
                             onChange={(e) => setCompany2(e.target.value)}
                             required
                         />
-                    <input className='ExperienceInput'
+                    <textarea className='ExperienceInput'
                             type="text"
+                            rows="5"
                             value={description2}
+                            maxLength={300}
                             onChange={(e) => setDescription2(e.target.value)}
                             required
                         />
@@ -193,41 +198,45 @@ const [description2, setDescription2] = useState('A brief description about your
             
                 <div className="TopColumn">
                     <h1>{name}</h1>
-                    <p>{profession} </p>
-                    <h2>Profile</h2>
-                    <p>{profile}</p>
+                    <p className='ProfessionLabel'>{profession} </p>
+                    <h2 className='ProfileTitle'>Profile</h2>
+                    <p className='ProfileBody'>{profile}</p>
                 </div>
 
                 <div className='LeftColumn'>
                     <h3>Contact</h3>
-                    <p>{number}</p>
-                    <p>{email}</p>
-                    <p>{address}</p>
+                    <p>☎ {number}</p>
+                    <p>✉ {email}</p>
+                    <p>⌂ {address}</p>
 
                     <h3>Skills</h3>
-                    <p>{skill1}</p>
-                    <p>{skill2}</p>
-                    <p>{skill3}</p>
-                    <p>{skill4}</p>
+                    <p>• {skill1}</p>
+                    <p>• {skill2}</p>
+                    <p>• {skill3}</p>
+                    <p>• {skill4}</p>
                     
                         
 
                     <h3>Education</h3>
-                    <p>{university}</p>
+                    <p><strong>{university}</strong></p>
                     <p>{degree}</p>
                     <p>{year}</p>
                 </div>
 
                 <div className='BodyColumn'>
-                <h3>Experience</h3>
-                <p>{role1}</p>
-                <p>{company1}</p>
-                <p>{description1}</p>
-                <p>{role2}</p>
-                <p>{company2}</p>
-                <p>{description2}</p>
-                
-                
+                    <h3>Experience</h3>
+                    <p><strong>{role1}</strong></p>
+                    <p>{company1}</p>
+                    <p>{description1}</p>
+                    <p></p>
+                    <p></p>
+                    <p><strong>{role2}</strong></p>
+                    <p>{company2}</p>
+                    <p>{description2}</p>
+
+                    <div className='PreviewFooter'>
+                    </div>
+
                 </div>
 
 
