@@ -48,29 +48,9 @@ const [description2, setDescription2] = useState('A brief description about your
 
 // button handlers 
 
-const addSkillHandler = () => {
-    console.log("Add skill button clicked")
+// const addSkillHandler = () => {
 
-    let SkillsDiv = document.querySelector('.SkillsDiv');
-    let skillsLength = SkillsDiv.children.length -1;
-    console.log(skillsLength);
-
-    const newSkill = document.createElement('input');
-    newSkill.className = 'SkillsInput';
-    newSkill.type = 'text';
-    let string = 'skill' + skillsLength;
-    newSkill.value ={string}
-    console.log(newSkill.value)
-    newSkill.required = true;
-    newSkill.maxLength = 25;
-    newSkill.onChange = (e) => setSkill1(e.target.value);
-
-
-
-
-
-
-};
+// };
 
 
 
@@ -83,7 +63,9 @@ const addSkillHandler = () => {
 
                 <div className="ProfilePicture">
                     <input type='file' 
-                    className='ProfilePictureInput'>
+                    className='ProfilePictureInput'
+                    onChange={(e) => setPicture(URL.createObjectURL(e.target.files[0]))}
+                    >
                     </input>
                 </div>
 
@@ -135,7 +117,7 @@ const addSkillHandler = () => {
                         />
 
                     <div className='SkillsDiv'>
-                    <h3><button className='minusBtn'>-</button>Skills<button className='PlusBtn' onClick={addSkillHandler}>+</button></h3>
+                    <h3><button className='minusBtn'>-</button>Skills<button className='PlusBtn'>+</button></h3>
                     <input className='SkillsInput'
                             type="text"
                             value={skill1}
@@ -223,6 +205,7 @@ const addSkillHandler = () => {
             <div className="PreviewScreen">
 
                 <div className="ProfilePicture">
+                    <img src={Picture} alt="Profile Avatar" className='ProfilePicturePreview'></img>
                 </div>
 
             
