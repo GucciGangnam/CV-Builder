@@ -117,18 +117,42 @@ const [description2, setDescription2] = useState('A brief description about your
                         />
 
                     <div className='SkillsDiv'>
-                    <h3><button className='minusBtn'>-</button>Skills<button className='PlusBtn'>+</button></h3>
+                    <h3>Skills</h3>
                     <input className='SkillsInput'
                             type="text"
                             value={skill1}
                             onChange={(e) => setSkill1(e.target.value)}
                             required
                         />
+                        <input className='SkillsInput'
+                            type="text"
+                            value={skill2}
+                            onChange={(e) => setSkill2(e.target.value)}
+                            required
+                        />
+                        <input className='SkillsInput'
+                            type="text"
+                            value={skill3}
+                            onChange={(e) => setSkill3(e.target.value)}
+                            required
+                        />
+                        <input className='SkillsInput'
+                            type="text"
+                            value={skill4}
+                            onChange={(e) => setSkill4(e.target.value)}
+                            required
+                        />
+                        <input className='SkillsInput'
+                            type="text"
+                            value={skill5}
+                            onChange={(e) => setSkill5(e.target.value)}
+                            required
+                        />
                     </div>
                     
                         
 
-                    <h3><button className='minusBtn'>-</button>Education<button className='PlusBtn'>+</button></h3>
+                    <h3>Education</h3>
                     <div className='EducationInputDiv'>
                         <div className='EducationInputDivSet'>
                             <input className='EducationInput'
@@ -149,13 +173,33 @@ const [description2, setDescription2] = useState('A brief description about your
                                     onChange={(e) => setYear(e.target.value)}
                                     required
                                 />
-                            </div>
+                        </div>
+                        <div className='EducationInputDivSet'>
+                            <input className='EducationInput'
+                                    type="text"
+                                    value={university2}
+                                    onChange={(e) => setUniversity2(e.target.value)}
+                                    required
+                                />
+                            <input className='EducationInput'
+                                    type="text"
+                                    value={degree2}
+                                    onChange={(e) => setDegree2(e.target.value)}
+                                    required
+                                />
+                            <input className='EducationInput'
+                                    type="text"
+                                    value={year2}
+                                    onChange={(e) => setYear2(e.target.value)}
+                                    required
+                                />
+                        </div>
                     </div>
                         
                 </div>
 
                 <div className='BodyColumn'>
-                <h3><button className='minusBtn'>-</button>Experience<button className='PlusBtn'>+</button></h3>
+                <h3>Experience</h3>
                 <input className='ExperienceInput'
                             type="text"
                             value={role1}
@@ -225,6 +269,10 @@ const [description2, setDescription2] = useState('A brief description about your
                     <div className='SkillsDivPre'>
                         <h3>Skills</h3>
                         <p>• {skill1}</p>
+                        <p>• {skill2}</p>
+                        <p>• {skill3}</p>
+                        <p>• {skill4}</p>
+                        <p>• {skill5}</p>
                     </div>
                     
                         
@@ -233,6 +281,10 @@ const [description2, setDescription2] = useState('A brief description about your
                         <p><strong>{university}</strong></p>
                         <p>{degree}</p>
                         <p>{year}</p>
+                        <div className='Devider'></div>
+                        <p><strong>{university2}</strong></p>
+                        <p>{degree2}</p>
+                        <p>{year2}</p>
                     </div>
                 </div>
 
@@ -241,8 +293,8 @@ const [description2, setDescription2] = useState('A brief description about your
                     <p><strong>{role1}</strong></p>
                     <p>{company1}</p>
                     <p>{description1}</p>
-                    <p></p>
-                    <p></p>
+                    <div className='Devider'></div>
+                    <div className='Devider'></div>
                     <p><strong>{role2}</strong></p>
                     <p>{company2}</p>
                     <p>{description2}</p>
