@@ -4,12 +4,17 @@ import './EditorScreen.css';
 //import useState
 import { useState } from 'react';
 
+//import compontents
+
+
 
 
 
 
 
 export const EditorScreen = () => {
+
+const [Picture, setPicture] = useState('');
 
 const [name, setName] = useState('Your Full Name');
 const [profession, setProfession] = useState('Profession');
@@ -23,10 +28,15 @@ const [skill1, setSkill1] = useState('Skill 1');
 const [skill2, setSkill2] = useState('Skill 2');
 const [skill3, setSkill3] = useState('Skill 3');
 const [skill4, setSkill4] = useState('Skill 4');
+const [skill5, setSkill5] = useState('Skill 5');
 
 const [university, setUniversity] = useState('University Name');
 const [degree, setDegree] = useState('Degree');
 const [year, setYear] = useState('Year');
+
+const [university2, setUniversity2] = useState('University Name');
+const [degree2, setDegree2] = useState('Degree');
+const [year2, setYear2] = useState('Year');
 
 const [role1, setRole1] = useState('Most Recent Role');
 const [company1, setCompany1] = useState('Company');
@@ -35,6 +45,33 @@ const [description1, setDescription1] = useState('A brief description about your
 const [role2, setRole2] = useState('Most Recent Role');
 const [company2, setCompany2] = useState('Company');
 const [description2, setDescription2] = useState('A brief description about your role');
+
+// button handlers 
+
+const addSkillHandler = () => {
+    console.log("Add skill button clicked")
+
+    let SkillsDiv = document.querySelector('.SkillsDiv');
+    let skillsLength = SkillsDiv.children.length -1;
+    console.log(skillsLength);
+
+    const newSkill = document.createElement('input');
+    newSkill.className = 'SkillsInput';
+    newSkill.type = 'text';
+    let string = 'skill' + skillsLength;
+    newSkill.value ={string}
+    console.log(newSkill.value)
+    newSkill.required = true;
+    newSkill.maxLength = 25;
+    newSkill.onChange = (e) => setSkill1(e.target.value);
+
+
+
+
+
+
+};
+
 
 
     return ( 
@@ -45,7 +82,9 @@ const [description2, setDescription2] = useState('A brief description about your
             <div className="EditorScreen">
 
                 <div className="ProfilePicture">
-                    <button>Upload Photo</button>
+                    <input type='file' 
+                    className='ProfilePictureInput'>
+                    </input>
                 </div>
 
             
@@ -85,6 +124,7 @@ const [description2, setDescription2] = useState('A brief description about your
                             type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            maxLength={25}
                             required
                         />
                     <input className='ContactInput'
@@ -94,56 +134,46 @@ const [description2, setDescription2] = useState('A brief description about your
                             required
                         />
 
-                    <h3><button className='minusBtn'></button>Skills<button className='PlusBtn'></button></h3>
+                    <div className='SkillsDiv'>
+                    <h3><button className='minusBtn'>-</button>Skills<button className='PlusBtn' onClick={addSkillHandler}>+</button></h3>
                     <input className='SkillsInput'
                             type="text"
                             value={skill1}
                             onChange={(e) => setSkill1(e.target.value)}
                             required
                         />
-                    <input className='SkillsInput'
-                            type="text"
-                            value={skill2}
-                            onChange={(e) => setSkill2(e.target.value)}
-                            required
-                        />
-                    <input className='SkillsInput'
-                            type="text"
-                            value={skill3}
-                            onChange={(e) => setSkill3(e.target.value)}
-                            required
-                        />
-                    <input className='SkillsInput'
-                            type="text"
-                            value={skill4}
-                            onChange={(e) => setSkill4(e.target.value)}
-                            required
-                        />
+                    </div>
+                    
                         
 
-                    <h3><button className='minusBtn'></button>Education<button className='PlusBtn'></button></h3>
-                    <input className='EducationInput'
-                            type="text"
-                            value={university}
-                            onChange={(e) => setUniversity(e.target.value)}
-                            required
-                        />
-                    <input className='EducationInput'
-                            type="text"
-                            value={degree}
-                            onChange={(e) => setDegree(e.target.value)}
-                            required
-                        />
-                    <input className='EducationInput'
-                            type="text"
-                            value={year}
-                            onChange={(e) => setYear(e.target.value)}
-                            required
-                        />
+                    <h3><button className='minusBtn'>-</button>Education<button className='PlusBtn'>+</button></h3>
+                    <div className='EducationInputDiv'>
+                        <div className='EducationInputDivSet'>
+                            <input className='EducationInput'
+                                    type="text"
+                                    value={university}
+                                    onChange={(e) => setUniversity(e.target.value)}
+                                    required
+                                />
+                            <input className='EducationInput'
+                                    type="text"
+                                    value={degree}
+                                    onChange={(e) => setDegree(e.target.value)}
+                                    required
+                                />
+                            <input className='EducationInput'
+                                    type="text"
+                                    value={year}
+                                    onChange={(e) => setYear(e.target.value)}
+                                    required
+                                />
+                            </div>
+                    </div>
+                        
                 </div>
 
                 <div className='BodyColumn'>
-                <h3><button className='minusBtn'></button>Experience<button className='PlusBtn'></button></h3>
+                <h3><button className='minusBtn'>-</button>Experience<button className='PlusBtn'>+</button></h3>
                 <input className='ExperienceInput'
                             type="text"
                             value={role1}
@@ -197,7 +227,7 @@ const [description2, setDescription2] = useState('A brief description about your
 
             
                 <div className="TopColumn">
-                    <h1>{name}</h1>
+                    <h1 className='NamePreview'>{name}</h1>
                     <p className='ProfessionLabel'>{profession} </p>
                     <h2 className='ProfileTitle'>Profile</h2>
                     <p className='ProfileBody'>{profile}</p>
@@ -209,18 +239,18 @@ const [description2, setDescription2] = useState('A brief description about your
                     <p>✉ {email}</p>
                     <p>⌂ {address}</p>
 
-                    <h3>Skills</h3>
-                    <p>• {skill1}</p>
-                    <p>• {skill2}</p>
-                    <p>• {skill3}</p>
-                    <p>• {skill4}</p>
+                    <div className='SkillsDivPre'>
+                        <h3>Skills</h3>
+                        <p>• {skill1}</p>
+                    </div>
                     
                         
-
-                    <h3>Education</h3>
-                    <p><strong>{university}</strong></p>
-                    <p>{degree}</p>
-                    <p>{year}</p>
+                    <div className='EducationInputDivPre'>
+                        <h3>Education</h3>
+                        <p><strong>{university}</strong></p>
+                        <p>{degree}</p>
+                        <p>{year}</p>
+                    </div>
                 </div>
 
                 <div className='BodyColumn'>
@@ -248,3 +278,5 @@ const [description2, setDescription2] = useState('A brief description about your
         </div>
         );
 }; 
+
+
